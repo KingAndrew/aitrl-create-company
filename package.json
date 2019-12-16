@@ -1,0 +1,27 @@
+{
+  "name": "company-create",
+  "version": "1.0.0",
+  "description": "create a company",
+  "main": "index.js",
+  "scripts": {
+    "test": "testCreateCompany"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingAndrew/aitrl-microservice-create-company.git"
+  },
+  "author": "Andrew Boyd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KingAndrew/aitrl-microservice-create-company/issues"
+  },
+  "homepage": "https://github.com/KingAndrew/aitrl-microservice-create-company#readme",
+  "dependencies": {
+    "aws-param-store": "^3.2.0",
+    "aws-sdk": "^2.590.0",
+    "mysql": "^2.17.1",
+    "vandium": "^5.1.0"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
