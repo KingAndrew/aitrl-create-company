@@ -6,15 +6,17 @@ const vandium = require( 'vandium' );
 
 const mysql   = require('mysql');
 
+var pool  = mysql.createPool({
+  connectionLimit : 100,
+  host            : process.env.rds_host,
+  user            : process.env.rds_user,
+  password        : process.env.rds_password,
+  database        : process.env.rds_database,
+  port            : process.env.rds_port
+});
+
 exports.handler = vandium.generic()
     .handler( (event, context, callback) => {
-
-  let connection = mysql.createConnection({
-    host     : '[rds_host]',
-    user     : '[rds_user]',
-    password : '[rds_password]',
-    database : '[rds_database]'
-  });
 
   let sql = "INSERT INTO aitrl.company";
 
@@ -23,7 +25,7 @@ exports.handler = vandium.generic()
 
   console.log('CreateCompany SQL: ${sql} ');
 
-  connection.query(sql, function (error, results, fields) {
+  pool.query(sql, function (error, results, fields) {
 
       console.log('CreateCompany Results: ${results}');
   	
